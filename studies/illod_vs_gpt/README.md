@@ -46,7 +46,7 @@ An LLM might expand SS to "speech separation" when "source separation" is the co
 ```
 data/
 ├── modified/       # Requirements with inserted abbreviations
-└── gpt_results/    # ChatGPT-4 detection outputs
+└── gpt_results/    # ChatGPT-4o detection outputs
 ```
 
 ## References

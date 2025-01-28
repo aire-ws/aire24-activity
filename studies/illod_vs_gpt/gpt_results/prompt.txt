@@ -1,0 +1,32 @@
+CONTEXT:
+One of the goals in requirements engineering is to improve an opaque system comprehension into a complete system specification. Activities related to glossary building support that goal, since glossaries serve to improve the accuracy and understandability of requirements written in natural language. According to the International Requirements Engineering Board (IREB), a glossary is a collection of defnitions of terms that are relevant in a specific domain. In addition, a glossary frequently contains cross-references, synonyms, homonyms, and abbreviations. Glossaries serve to enrich the requirement texts with additional important information, which ensures that technical terms are used and understood correctly, and supports communication among project participants. The consequent use of a complete and accurate glossary leads to a more consistent language, resulting in coherent structures for the requirements, which in turn enhances automatic analysability. Finally, a glossary can be reused for future projects within the same application domain to facilitate requirements elicitation and analysis. In order to obtain the mentioned benefits, a glossary should be developed during the requirements elicitation phase, which is also compliant to best practices. For various reasons, many projects tend to build their glossary after the requirements elicitation phase. However, this complicates the task, since requirements written without the use of a glossary are more likely to contain imprecise or ambiguous wordings. When multiple terms are used to refer to the same meaning (synonyms), denote specializations (hyponyms), or terms have multiple meanings (homonyms), this presents a major challenge for the identfication of glossary terms. Therefore, beforehand, the analyst has to ensure that the terminology is used consistently, e.g. through syntactic or semantic adjustments. This task affects various inter-requirement relations in parallel.
+
+We briefly focus on the main problems to be solved by an automated tool for the identification of glossary terms (GTE). First, since 99% of glossary entries are noun phrases (NPs):
+ 
+(A) A GTE tool needs to have an accurate noun phrase detection.
+ 
+Second, as glossaries deal with domain specific terms and omit duplicates:
+ 
+(B) A GTE tool needs to filter detected NPs to glossary term candidates.
+ 
+Considering (A), Natural Language Processing (NLP) pipelines for noun phrase detection, e.g., through chunking approaches, are shown to be effective. As such, in this paper we focus on devising an effective technique for (B). Here, statistical filters composed of specficity and relevance measures, as presented by Gemkow et al., could be used, in which beforehand identification of homonyms, synonyms, and different spelling variants among detected noun phrases is expected to have a positive effect on accuracy. Since we explicitly consider requirement sets with such quality weaknesses, we first focus on:
+ 
+(B1) A GTE tool needs to identify and/or merge homonyms, synonyms, hyponyms and different spelling variants among detected noun phrases. To detect such relations among domain terms is also beneficial for the building of initial domain models. In order to check whether a given pair of terms is synonymous, homonymous, or hypernymous, the underlying concepts themselves must be disambiguated, which requires good knowledge about the relevant domain. Therefore, candidate term pairs still have to be confirmed or rejected by the analyst. To keep the manual effort low, term clusters are a suitable method of representation. A cluster of size n can combine (n(n - 1))/2 term pairs. For example, the REGICE tool follows a synonym clustering approach. Yet, only context-based (semantic) and text-based (syntactic) similarity are considered and abbreviations must have been cleaned up and defined beforehand. Homonyms and hyponyms are not explicitly addressed. Yet, they can be spotted as bycatch. However, for homonyms this is only the case for non-disjoint clusters.
+ 
+For higher recall in synonym detection, additionally pattern-based similarity for controlled abbreviations can be applied. It refers to clauses where abbreviations are defined by their corresponding expansions using parentheses or keywords such as "also known as", "abbreviated" and "a.k.a.", e.g.,
+ 
+Common Business Oriented Language abbreviated COBOL,
+AES (Advanced Encryption Standard),
+Compression / Decompression, also known as Codec
+ 
+More interesting, however, is an algorithm that also supports to resolve uncontrolled abbreviations, which are not defined in place when they are used. Uncontrolled abbreviations in requirements are rather common, especially when requirements elicitation is carried out by different persons (in different organizations) and when guidelines for the use of abbreviations are missing or not followed. Abbreviations can be homonymous by having multiple possible expansions within the same requirements set, as they are predominantly used in a project- or domain-specific context, and new projects regularly come up with new word creations. Thus, simple look-up techniques on predefined lists are not sufficient. This leads us to the next problem statement:
+ 
+(B1.1) A GTE tool needs to exploratorily resolve hitherto unknown abbreviations in comparison to other terms present in the given text.
+ 
+Since the abbreviation list is part of the glossary, both should be built in parallel. The goal is to enable a specific synonym detection optimized for matching of abbreviations with their expansions, which can be integrated to the clustering in glossary term extraction (GTE) tools.
+ 
+ 
+TASK:
+I will give you a list of 625 requirements that contain uncontrolled abbreviations.
+1) Try to find all abbreviations that are present in the given requirements list
+2) For every abbreviation that you found generate a list of expansion candidates. Be careful not to invent any expansion candidates, but only include terms that actually occur in the requirement statements as expansion candidates.

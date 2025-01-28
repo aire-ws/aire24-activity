@@ -31,7 +31,7 @@ As detailed in [2]:
 - Detected 29/30 inserted abbreviations
 - Correctly identified expansions for 25/29 detected abbreviations
 
-#### ChatGPT-4 Approach
+#### ChatGPT-4o Approach
 - Task 1: Find all abbreviations in modified dataset
 - Task 2: Generate expansion candidates for found abbreviations
 - Constraint: Only suggest expansions present in requirements

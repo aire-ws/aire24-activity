@@ -1,6 +1,6 @@
 # Abbreviation-Expansion Pair Detection Study
 
-This directory compares ILLOD with ChatGPT-4o in detecting Abbreviation-Expansion Pairs (AEPs) in requirements documents.
+This directory compares ILLOD [1] with ChatGPT-4o in detecting Abbreviation-Expansion Pairs (AEPs) in requirements documents.
 
 ## Background
 

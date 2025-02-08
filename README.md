@@ -32,6 +32,7 @@ The study should clearly describe the task of the tool, contain a public replica
 We have prepared some studies for this task which are readily available:
 
 1. The **CiRA tool** by Frattini et al.[^1] (located in [studies/aire-23-frattini/](./studies/aire-23-frattini/)): a BERT-based tool that automatically generates test case descriptions from conditional requirements sentences.
+2. The **ILLOD** by Hasso et al.[^2] (located in [studies/refsq-22-hasso/](./studies/refsq-22-hasso/README.md)): a custom tool for detecting abbreviation-expansion pairs in technical documents.
 
 All prepared studies contain a dedicated `README.md` file with some additional information.
 You can also use an own study of your choice.
@@ -60,7 +61,9 @@ Feel free to add questions and insights of your own.
 
 ## License
 
-Copyright © 2024 by Julian Frattini, Chetan Arora, and Fatma Basak Aydemir.
+Copyright © 2025 of the ILLOD study under studies/refsq-22-hasso by Hussein Hasso.
+Copyright © 2024 of the rest of the repository by Julian Frattini, Chetan Arora, and Fatma Basak Aydemir.
 This work (source code) is available under [MIT license](./LICENSE).
 
 [^1]: Frattini, J., Fischbach, J., & Bauer, A. (2023, September). CiRA: An Open-Source Python Package for Automated Generation of Test Case Descriptions from Natural Language Requirements. In 2023 IEEE 31st International Requirements Engineering Conference Workshops (REW) (pp. 68-71). IEEE. DOI: [10.1109/REW57809.2023.00019](https://doi.org/10.1109/REW57809.2023.00019).
+[^2]: Hasso, Hussein, et al. "Abbreviation-expansion pair detection for glossary term extraction." International Working Conference on Requirements Engineering: Foundation for Software Quality. Cham: Springer International Publishing, 2022.

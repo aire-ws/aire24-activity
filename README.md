@@ -32,7 +32,7 @@ The study should clearly describe the task of the tool, contain a public replica
 We have prepared some studies for this task which are readily available:
 
 1. The **CiRA tool** by Frattini et al.[^1] (located in [studies/aire-23-frattini/](./studies/aire-23-frattini/)): a BERT-based tool that automatically generates test case descriptions from conditional requirements sentences.
-2. The **ILLOD** by Hasso et al.[^2] (located in [studies/refsq-22-hasso/](./studies/refsq-22-hasso/README.md)): a custom tool for detecting abbreviation-expansion pairs in technical documents.
+2. The **ILLOD** tool by Hasso et al.[^2] (located in [studies/refsq-22-hasso/](./studies/refsq-22-hasso/README.md)): a custom tool for detecting abbreviation-expansion pairs in technical documents.
 
 All prepared studies contain a dedicated `README.md` file with some additional information.
 You can also use an own study of your choice.
